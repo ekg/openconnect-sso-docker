@@ -58,3 +58,6 @@ Thanks to containerization, this is accomplished without system-level execution 
 
 Automatic, headless login with openconnect-sso works on my desktop, but this seems to depend on a fully-functional gnome-keyring.
 If this could be resolved, we could use only one docker image (openconnect-sso) on a headless server.
+
+The config.toml file will support automatic login.
+For UTHSC, the difference from openconnect-sso's main branch is that instead of `selector = "input[type=email]"` we have `selector = "input[type=text]"`.
