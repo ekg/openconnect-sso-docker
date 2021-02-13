@@ -1,0 +1,27 @@
+on_disconnect = ""
+
+[default_profile]
+address = "https://uthscvpn1.uthsc.edu/"
+user_group = ""
+name = ""
+
+[credentials]
+username = "egarris5"
+
+[auto_fill_rules]
+[[auto_fill_rules."https://*"]]
+selector = "div[id=passwordError]"
+action = "stop"
+
+[[auto_fill_rules."https://*"]]
+selector = "input[type=text]"
+fill = "username"
+
+[[auto_fill_rules."https://*"]]
+selector = "input[type=password]"
+fill = "password"
+
+[[auto_fill_rules."https://*"]]
+selector = "input[type=submit]"
+action = "click"
+
