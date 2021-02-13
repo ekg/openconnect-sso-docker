@@ -1,0 +1,17 @@
+FROM debian
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y curl bzip2 bash xz-utils
+RUN useradd -ms /bin/bash robot
+RUN groupadd nixbld && usermod -a -G nixbld robot
+RUN mkdir -p /nix
+RUN chmod 777 /nix
+ENV HOME /home/robot
+ENV USER robot
+USER robot
+WORKDIR /home/robot
+RUN curl -L https://nixos.org/nix/install | sh
+RUN . $HOME/.nix-profile/etc/profile.d/nix.sh && \
+    nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs && \
+    nix-channel --update
+RUN . $HOME/.nix-profile/etc/profile.d/nix.sh && \
+    nix-env -i -f https://github.com/vlaci/openconnect-sso/archive/master.tar.gz
+

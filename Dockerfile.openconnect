@@ -1,0 +1,2 @@
+FROM debian
+RUN apt update -y && apt upgrade -y && apt install -y openconnect bash ssh
