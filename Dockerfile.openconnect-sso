@@ -16,7 +16,7 @@ USER robot
 #RUN chmod ug+w /home/robot/.config/openconnect-sso/config.toml
 WORKDIR /home/robot
 RUN pip3 install --user pipx
-RUN /home/robot/.local/bin/pipx install "openconnect-sso[full]"
+RUN /home/robot/.local/bin/pipx install "openconnect-sso[full]==0.7.2"
 RUN echo 'PATH=/home/robot/.local/bin:$PATH' >>.bashrc
 RUN echo pipx ensurepath >>.bashrc
 #ADD entrypoint.sh /home/robot
